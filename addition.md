@@ -13,16 +13,14 @@ Scenario: Add two numbers
 
 Scenario: Add more numbers
 
-  Given I have a working calculator and have more than two numbers to add say three numbers
+  Given I have a working calculator and have more than two numbers to add
 
   When I enter "number1"
-  And I press "+" button
-  And I enter "number2" 
-  And I press "+" button
-  And I enter "number3"
+  And I press "+" button And I enter "number2" And I press "+" button
+  And I enter third number
   And I press "=" button
-
-  Then I see the "final Added sum" as result 
+  
+  Then I see the "final Added sum" as result
 
 Scenario: Result is too large to display (or overrunning the limits)
 
@@ -34,7 +32,7 @@ Scenario: Result is too large to display (or overrunning the limits)
   And I press "=" button
   And if sum exceeds the limit
   
-  Then I see the "sum in exponential form" as the result 
+  Then I see the "sum in exponential form" as the result
 
 Scenario: Numbers can be negative
 
@@ -49,7 +47,7 @@ Scenario: Numbers can be negative
 
 Scenario: Numbers can be fraction
 
- Given I have a Working calculator
+  Given I have a Working calculator
 
   When I enter "number1"
   And I press "+" button
@@ -60,7 +58,7 @@ Scenario: Numbers can be fraction
 
 Scenario: Number can be irrational
 
- Given I have a Working calculator
+  Given I have a Working calculator
 
   When I enter "number1"
   And I press "+" button
@@ -73,7 +71,7 @@ Scenario: Length of each number
 
   Given I have a Working calculator
 
-  When I enter either "number1" or "number2" and it's length exceeds limit predefined limit
+  When I enter either "number1" or "number2" and it's length exceeds predefined limit
   And I perform addition
   And I press "=" button
   
@@ -91,25 +89,24 @@ Scenario: If number1 or number2 is not entered
 
 Scenario: If the number is real/complex
 
- Given I have a Working calculator and supports complex number addition
+  Given I have a Working calculator and supports complex number addition
 
   When I enter "number1"
   And I press "+" button
   And I enter "number2"
-  And I enter "number2" 
+  And I enter "number2"
   And I enter "=" button
   
-  Then I see the "real parts added and complex parts added seperated by addition sign and symbol i" as the result
+  Then I see "real parts and complex parts added" as result
 
 Scenario: If we are inbetween some operation
 
- Given I have a Working calculator
+  Given I have a Working calculator
 
   When I enter "number1"
   And I press "+" button
   And I press "-" button
   And I enter "number2"
-  And I enter "=" button 
+  And I enter "=" button
   
-  Then I see the "difference between number1 and number2" as the result
-
+  Then I see the "difference between number1 and number2" as the result.
